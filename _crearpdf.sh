@@ -1,5 +1,13 @@
 #!/bin/bash
 
+#Biblioteca Florentino Ameghino www.bfa.fcnym.unlp.edu.ar
+#https://github.com/bfafcnym
+
+#Software requerido:
+#sudo apt update
+#sudo apt install imagemagick img2pdf ocrmypdf tesseract-ocr tesseract-ocr-spa tesseract-ocr-eng tesseract-ocr-fra tesseract-ocr-por tesseract-ocr-deu xdg-utils
+#chmod +x _crearpdf.sh
+
 #Uso
 #./_crearpdf.sh "</directorio/con/fotos>" "<nombre del pdf>"
 #./_crearpdf.sh "/home/maquina-01/Imágenes/labestia/2025-05-08_1056_fotos" "RMLP 1(21) 1999"
