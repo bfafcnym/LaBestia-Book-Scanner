@@ -1,5 +1,15 @@
 #!/bin/bash
 
+#Biblioteca Florentino Ameghino www.bfa.fcnym.unlp.edu.ar
+#https://github.com/bfafcnym
+
+#Software requerido:
+#sudo apt update
+#sudo apt install gphoto2 imagemagick xdg-utils
+#chmod +x _procesarfotos.sh
+
+#Uso
+#./_procesarfotos.sh
 
 #Para que el script reconozca las camaras
 pkill -f gvfs-gphoto2-volume-monitor
