@@ -69,7 +69,8 @@ if [ ${#jpg_files[@]} -eq 0 ]; then
   exit 1
 fi
 
-for img in "${jpg_files[@]}"; do
+# 🔁 Procesar en orden natural (0038_a < 0038_ab < 0038_abc)
+for img in $(ls -1 | grep -E '\.jpe?g$' | sort -V); do
   echo "   → Procesando: $img"
   convert "$img" -density 600 -sharpen 1x1.5 "$output_folder/$img"
 done
@@ -83,8 +84,8 @@ echo
 # ───────────────────────────────────────────────────────────────
 echo "📄 Creando PDF ordenado: $NombrePdf.pdf"
 
-# Ordena lexicográficamente, asegurando orden correcto (0037_a < 0038_abcd)
-find "$output_folder" -maxdepth 1 -type f -iname '*.jpg' | sort | while IFS= read -r file; do
+# Ordena naturalmente (a < aa < ab < abc < abcd)
+find "$output_folder" -maxdepth 1 -type f -iname '*.jpg' | sort -V | while IFS= read -r file; do
   printf '%s\0' "$file"
 done | xargs -0 img2pdf -o "$NombrePdf.pdf"
 
@@ -138,3 +139,4 @@ echo
 echo "📘 Abriendo PDF..."
 xdg-open "$NombrePdf.pdf" >/dev/null 2>&1 &
 echo "✅ Proceso finalizado con éxito."
+
