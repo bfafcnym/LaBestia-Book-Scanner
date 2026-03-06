@@ -92,7 +92,6 @@ for img in "${imagenes[@]}"; do
   nombre="${base%.*}"
 
   convert "$img" \
-    -colorspace Gray \
     -density 600 \
     -auto-level \
     -unsharp 0x1 \
